@@ -11,12 +11,12 @@ if (localStorage.tasks === undefined) {
 }
 
 // console.table(JSON.parse(localStorage.tasks));
-const tasks = localStorage.tasks;
+const tasks = JSON.parse(localStorage.tasks);
 
 tasks.forEach(task => {
   const add = document.createElement("li");
   if (task.completed) {
-    li.classList.add('completed');
+    add.classList.add('completed');
   } 
   add.innerHTML = '<div class="view"><input class="toggle" type="checkbox" checked /><label>' + task.content + '</label><button class="destroy"></button></div>';
   document.querySelector(".todo-list").appendChild(add);
