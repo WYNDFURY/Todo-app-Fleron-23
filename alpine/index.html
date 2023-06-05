@@ -24,7 +24,21 @@
       <section class="main">
         <input id="toggle-all" class="toggle-all" type="checkbox" />
         <label for="toggle-all">Mark all as complete</label>
-        <ul class="todo-list"></ul>
+        <ul class="todo-list">
+          <template x-for="task in tasks">
+            <li x-bind:class="task.completed ? 'completed' : '' ">
+              <div class="view">
+                <input 
+                class="toggle" 
+                type="checkbox"
+                x-model="task.completed" />
+                <label x-text="task.content"></label>
+                <button class="destroy"></button>
+              </div>
+            </li>
+
+          </template>
+        </ul>
       </section>
       <footer class="footer">
         <span class="todo-count"><span>1</span> item(s) left</span>
